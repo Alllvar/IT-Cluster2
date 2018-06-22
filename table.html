@@ -3,19 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <title>table</title>
+        <link rel="stylesheet" type="text/css" href="table.css">
     </head>
     <body>
-        <style>
-            table, td, th {
-                border-style: solid;
-                border-width: 1px;
-                border-collapse: collapse;
-                width: 400px;
-            }
-        </style>
         <table>
-            <caption>A complex table</caption>
-            <tr>
+            <caption id="caption">A complex table</caption>
+            <tr class="main">
                 <td colspan="3">Invoice #123456789</td>
                 <td>14 January 2025</td>
             </tr>
@@ -33,7 +26,7 @@
                     Southeast Northwestershire, MA 54321<br>
                 </td>
             </tr>
-            <tr>
+            <tr class="main">
                 <td>Name/Description</td>
                 <td>Qty.</td>
                 <td>@</td>
@@ -52,16 +45,16 @@
                 <td>100.00</td>
             </tr>
             <tr>
-                <td colspan="3">Subtotal</td>
+                <td colspan="3" class="main">Subtotal</td>
                 <td>110.00</td>
             </tr>
             <tr>
-                <td colspan="2">Tax</td>
+                <td colspan="2" class="main">Tax</td>
                 <td>8%</td>
                 <td>8.80</td>
             </tr>
             <tr>
-                <td colspan="3">Grand Total</td>
+                <td colspan="3" class="main">Grand Total</td>
                 <td>$ 118.80</td>
             </tr>
         </table>
