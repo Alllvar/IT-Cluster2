@@ -2,66 +2,96 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>table</title>
+        <title>Анкета відвідувача готелю</title>
     </head>
     <body>
- <style>
-            table, td, th {
-                border-style: solid;
-                border-width: 1px;
-                border-collapse: collapse;
-                width: 400px;
-        }
-        </style>
-        <table>
-            <caption>A complex table</caption>
-            <tr>
-                <td colspan="3">Invoice #123456789</td>
-                <td>14 January 2025</td>
-            </tr>
-            <tr>
-                <td colspan="2">Pay to:<br>
-                                Acme Billing Co.<br>
-                                123 Main St.<br>
-                                Cityville, Na 12345<br>
-                </td>
-                <td colspan="2">Customer:<br>
-                                John Smith<br>
-                                321 Willow Way<br>
-                                Southeast Northwestershire, MA 54321<br>
-                </td>
-            </tr>
-            <tr>
-                <td>Name/Description</td>
-                <td>Qty.</td>
-                <td>@</td>
-                <td>Cost</td>
-            </tr>
-            <tr>
-                <td>Paperclips</td>
-                <td>1000</td>
-                <td>0.01</td>
-                <td>10.00</td>
-            </tr>
-            <tr>
-                <td>Staples (box)</td>
-                <td>100</td>
-                <td>1.00</td>
-                <td>100.00</td>
-            </tr>
-            <tr>
-                <td colspan="3">Subtotal</td>
-                <td>110.00</td>
-            </tr>
-            <tr>
-                <td colspan="2">Tax</td>
-                <td>8%</td>
-                <td>8.80</td>
-            </tr>
-            <tr>
-                <td colspan="3">Grand Total</td>
-                <td>$ 118.80</td>
-            </tr>
-        </table>
+        <form action="file.php" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Пошук по критеріям</legend>
+                <p>
+                    <label for="name">Ім'я</label>
+                    <input type="text" id="name" name="name" required />
+                </p>
+                <p>
+                    <label for="phone_number">Телефон</label>
+                    <!-- input type tel works only in Safari browser -->
+                    <input 
+                        type="tel" 
+                        placeholder="888 888 8888"  
+                        id="phone_number" 
+                        name="phone_number" 
+                        pattern="[0-9]{3} [0-9]{3} [0-9]{4}"
+                        required
+                    />
+                </p>
+                <p>
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email"/>
+                </p>
+                <p>
+                    <label for="place_of_residence">Місце/назва помешкання</label>
+                    <input type="text" name="place_of_residence" id="place_of_residence"/>
+                </p>
+                <p>
+                    <label for="arrival_date">Дата заїзду</label>
+                    <input type="date" name="arrival_date" id="arrival_date" required />
+                </p>
+                <p>
+                    <label for="date_of_departure">Дата виїзду</label>
+                    <input type="date" name="date_of_departure" id="date_of_departure" required />
+                </p>
+                <p>
+                    <label for="star">Кількість зірок</label>
+                    <select name="star" id="star">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="adult_count">Кількість дорослих</label>
+                    <select name="adult_count" id="adult_count">
+                        <option value="1 adult">1 дорослий</option>
+                        <option value="2 adults">2 дорослих</option>
+                        <option value="3 adults">3 дорослих</option>
+                        <option value="4 adults">4 дорослих</option>
+                        <option value="5 adults">5 дорослих</option>
+                    </select>
+                </p>  
+                <p>
+                    <label for="children_count">Кількість дітей</label>
+                    <select name="children_count" id="children_count">
+                        <option value="without children">без дітей</option>
+                        <option value="1 child">1 дитина</option>
+                        <option value="2 children">2 дитини</option>
+                        <option value="3 children">3 дитини</option>
+                        <option value="4 children">4 дитини</option>
+                        <option value="5 children">5 дитини</option>
+                    </select>
+                </p>
+                <p>
+                    Ціна(за ніч):
+                </p>
+                <label for="less_than_150">до 150 грн</label>
+                <input type="radio" name="price" value="less_than_150" id="less_than_150" required />
+                <label for="150-300">від 150 до 300 грн</label>
+                <input type="radio" name="price" value="150-300" id="150-300" />
+                <label for="300-600">від 300 до 600 грн</label>
+                <input type="radio" name="price" value="300-600" id="300-600" />
+                <label for="600-1000">від 600 до 1000 грн</label>
+                <input type="radio" name="price" value="600-1000" id="600-1000" />
+                <label for="more_than_1000">більше 1000 грн</label>
+                <input type="radio" name="price" value="more_than_1000" id="more_than_1000" />
+                <p title="Якщо ви оберете цей варіант, ми покажемо вам помешкання зі зручностями для бізнес-мандрівників, як-от сніданок, Wi-Fi та безкоштовна парковка.">
+                    <label>
+                        Я подорожую у справах
+                        <input type="checkbox" />
+                    </label>
+                </p>
+                <input type="submit" value="Пошук по готелям" />
+            </fieldset>
+        </form>
     </body>
 </html>

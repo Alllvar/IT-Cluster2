@@ -1,0 +1,27 @@
+table, td, th {
+    border-style: solid;
+    border-width: 1px;
+    border-collapse: collapse;
+    width: 400px;
+}
+
+body {
+    font: 14px/1.5 Georgia, serif;
+  }
+
+td {
+    color: #3e4444;
+}
+
+.main {
+    background-color: lightsteelblue;
+    font-weight: bold;
+}
+table {
+    background-color: #e6e2d3;
+    border: solid;
+}
+
+#caption {
+    font-size: 30px;
+}
